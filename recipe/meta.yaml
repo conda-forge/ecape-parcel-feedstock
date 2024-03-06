@@ -23,6 +23,8 @@ requirements:
     - python >=3.8
     - ecape
     - metpy
+    - numpy
+    - pint
 
 test:
   imports:
