@@ -27,12 +27,10 @@ requirements:
     - pint
 
 test:
-  imports:
-    - ecape_parcel
+  files:
+    - run_tests.sh
   commands:
-    - pip check
-  requires:
-    - pip
+    - sh run_tests.sh
 
 about:
   summary: A simple Python package that computes entrainment CAPE parcels.
