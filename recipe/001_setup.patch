@@ -1,0 +1,73 @@
+diff -Nur ecape_parcel-1.2.0.2.orig/.gitignore ecape_parcel-1.2.0.2/.gitignore
+--- ecape_parcel-1.2.0.2.orig/.gitignore	1969-12-31 18:00:00.000000000 -0600
++++ ecape_parcel-1.2.0.2/.gitignore	2024-03-06 21:04:40.578260683 -0600
+@@ -0,0 +1 @@
++**/*.pyc
+diff -Nur ecape_parcel-1.2.0.2.orig/pyproject.toml ecape_parcel-1.2.0.2/pyproject.toml
+--- ecape_parcel-1.2.0.2.orig/pyproject.toml	2024-03-06 21:04:16.627802080 -0600
++++ ecape_parcel-1.2.0.2/pyproject.toml	2024-03-06 22:49:18.703405528 -0600
+@@ -1,14 +1,10 @@
+-[build-system]
+-requires = ["hatchling"]
+-build-backend = "hatchling.build"
+-
+ [project]
+ name = "ecape-parcel"
+ dynamic = ["version"]
+ description = 'A simple Python package that computes entrainment CAPE parcels.'
+ readme = "README.md"
+ requires-python = ">=3.8"
+-license = "MIT"
++license = {text = "MIT"}
+ keywords = []
+ authors = [
+   { name = "a-urq", email = "amelia.r.urquhart@gmail.com" },
+@@ -31,35 +27,6 @@
+ Issues = "https://github.com/a-urq/ecape-parcel-py/issues"
+ Source = "https://github.com/a-urq/ecape-parcel-py"
+ 
+-[tool.hatch.version]
+-path = "src/ecape_parcel/__about__.py"
+-
+-[tool.hatch.envs.default]
+-dependencies = [
+-  "coverage[toml]>=6.5",
+-  "pytest",
+-]
+-[tool.hatch.envs.default.scripts]
+-test = "pytest {args:tests}"
+-test-cov = "coverage run -m pytest {args:tests}"
+-cov-report = [
+-  "- coverage combine",
+-  "coverage report",
+-]
+-cov = [
+-  "test-cov",
+-  "cov-report",
+-]
+-
+-[[tool.hatch.envs.all.matrix]]
+-python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+-
+-[tool.hatch.envs.types]
+-dependencies = [
+-  "mypy>=1.0.0",
+-]
+-[tool.hatch.envs.types.scripts]
+-check = "mypy --install-types --non-interactive {args:src/ecape_parcel tests}"
+ 
+ [tool.coverage.run]
+ source_pkgs = ["ecape_parcel", "tests"]
+diff -Nur ecape_parcel-1.2.0.2.orig/setup.cfg ecape_parcel-1.2.0.2/setup.cfg
+--- ecape_parcel-1.2.0.2.orig/setup.cfg	1969-12-31 18:00:00.000000000 -0600
++++ ecape_parcel-1.2.0.2/setup.cfg	2024-03-06 22:45:36.246939823 -0600
+@@ -0,0 +1,9 @@
++[options]
++package_dir =
++    = src
++packages = find:
++
++
++[options.packages.find]
++where = src
++

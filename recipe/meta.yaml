@@ -1,5 +1,5 @@
 {% set name = "ecape-parcel" %}
-{% set version = "1.2.0.1" %}
+{% set version = "1.2.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,30 +7,31 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ecape_parcel-{{ version }}.tar.gz
-  sha256: dab35709cc04774b4b2e80421907e52650505a5ee514c1954661ebdf73493f10
+  sha256: 352af49acdc0fff2105989a769a9a4a48e6b6287b0914afbb4b9d8c3d924e8a8
+  patches:
+    - 001_setup.patch
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv --no-deps
   number: 0
 
 requirements:
   host:
     - python >=3.8
-    - hatchling
     - pip
   run:
     - python >=3.8
     - ecape
     - metpy
+    - numpy
+    - pint
 
 test:
-  imports:
-    - ecape_parcel
+  files:
+    - run_tests.sh
   commands:
-    - pip check
-  requires:
-    - pip
+    - sh run_tests.sh
 
 about:
   summary: A simple Python package that computes entrainment CAPE parcels.
