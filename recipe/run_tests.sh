@@ -1,4 +1,6 @@
 set -e
 set -x
 
-mamba inspect ecape-parcel
+mamba info ecape-parcel
+python -c 'import ecape_parcel'
+
