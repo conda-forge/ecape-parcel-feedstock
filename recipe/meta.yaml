@@ -8,13 +8,11 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ecape_parcel-{{ version }}.tar.gz
   sha256: 352af49acdc0fff2105989a769a9a4a48e6b6287b0914afbb4b9d8c3d924e8a8
-  patches:
-    - 001_setup.patch
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps
-  number: 0
+  number: 1
 
 requirements:
   host:
