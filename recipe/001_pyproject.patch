@@ -1,11 +1,15 @@
 --- ecape_parcel-1.2.0.2.orig/pyproject.toml	2024-03-06 21:04:16.627802080 -0600
-+++ ecape_parcel-1.2.0.2/pyproject.toml	2024-03-18 13:51:33.506361061 -0500
-@@ -31,6 +31,9 @@
++++ ecape_parcel-1.2.0.2/pyproject.toml	2024-03-18 14:03:12.595773877 -0500
+@@ -31,6 +31,13 @@
  Issues = "https://github.com/a-urq/ecape-parcel-py/issues"
  Source = "https://github.com/a-urq/ecape-parcel-py"
  
 +[tool.hatch.build.targets.sdist]
 +ignore-vcs = true
++
++[tool.hatch.build.targets.wheel]
++ignore-vcs = true
++packages = ["src/ecape_parcel"]
 +
  [tool.hatch.version]
  path = "src/ecape_parcel/__about__.py"
