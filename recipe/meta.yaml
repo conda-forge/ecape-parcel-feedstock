@@ -1,5 +1,5 @@
 {% set name = "ecape-parcel" %}
-{% set version = "1.2.0.2" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ecape_parcel-{{ version }}.tar.gz
-  sha256: 352af49acdc0fff2105989a769a9a4a48e6b6287b0914afbb4b9d8c3d924e8a8
-  patches:
-    - 001_pyproject.patch
+  sha256: 081f32d412fcdd8f632c5959f81ca730277b81d58916b151a4dacbabe5e30fb8
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps
-  number: 1
+  number: 0
 
 requirements:
   host:
