@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ecape_parcel-{{ version }}.tar.gz
   sha256: 081f32d412fcdd8f632c5959f81ca730277b81d58916b151a4dacbabe5e30fb8
-  patches:
-    - 001_pyproject.patch
 
 build:
   noarch: python
