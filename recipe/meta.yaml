@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ecape_parcel-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ecape_parcel-{{ version }}.tar.gz
   sha256: c6a1050fa4717dce77113721977ba707451c675cc9efddaf04fb32ea3ed139a9
 
 build:
