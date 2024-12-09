@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - python {{ python_min }}
+    - pip
 
 about:
   summary: A simple Python package that computes entrainment CAPE parcels.
