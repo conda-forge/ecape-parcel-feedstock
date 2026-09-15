@@ -1,0 +1,50 @@
+schema_version: 1
+
+context:
+  name: ecape-parcel
+  version: "1.2.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ecape_parcel-${{ version }}.tar.gz
+  sha256: c6a1050fa4717dce77113721977ba707451c675cc9efddaf04fb32ea3ed139a9
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - ecape
+    - metpy
+    - numpy
+    - pint
+
+tests:
+  - python:
+      imports:
+        - ecape_parcel
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  summary: A simple Python package that computes entrainment CAPE parcels.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/a-urq/ecape-parcel-py
+  repository: https://github.com/a-urq/ecape-parcel-py
+
+extra:
+  recipe-maintainers:
+    - akrherz
